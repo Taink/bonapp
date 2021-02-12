@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "423873249914",
+    "project_id": "bonapp-550ea",
+    "storage_bucket": "bonapp-550ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423873249914:android:8476073cf2fce34016b1c3",
+        "android_client_info": {
+          "package_name": "fr.iut.info.app.appmob.bonapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423873249914-fsbd2a3ch1fm9n5h6kiba3k7qkdl1qsk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzveACMPt6bKrdTlChOQtT7-5NRMJI8QI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "423873249914-fsbd2a3ch1fm9n5h6kiba3k7qkdl1qsk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
