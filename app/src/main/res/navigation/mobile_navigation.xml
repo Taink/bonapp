@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="fr.iut.info.app.appmob.bonapp.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_favorites"
+        android:name="fr.iut.info.app.appmob.bonapp.ui.dashboard.FavoritesFragment"
+        android:label="@string/title_favorites"
+        tools:layout="@layout/fragment_favorites" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="fr.iut.info.app.appmob.bonapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_recipes"
+        android:name="fr.iut.info.app.appmob.bonapp.ui.notifications.RecipesFragment"
+        android:label="@string/title_recipes"
+        tools:layout="@layout/fragment_recipes" />
 </navigation>

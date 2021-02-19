@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import fr.iut.info.app.appmob.bonapp.R
 
-class DashboardFragment : Fragment() {
+class FavoritesFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var dashboardViewModel: FavoritesViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -20,8 +20,8 @@ class DashboardFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+                ViewModelProvider(this).get(FavoritesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_favorites, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
