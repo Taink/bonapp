@@ -39,14 +39,14 @@ Au premier lancement de l'application, on pourrait avoir un menu de démarrage q
 
 ## Page d'accueil
 
-Listing de recettes, possibilité de favoriser (?) chaque recette via un petit cœur ou une étoile ou une carotte
+Listing de recettes, possibilité de favoriser (?) chaque recette via un petit cœur ou une étoile (ou une carotte)
 
 ## "Mes recettes"
 
 La liste des recettes que l'on a saisies sur l'application (propres à l'utilisateur) *et* les favoris
 Outil d'édition
 
-> À terme: si il y a des comptes utilisateurs, peut contenir les recettes crées et/ou importées par l'utilisateur
+> À terme: si il y a des comptes utilisateurs, peut contenir les recettes créées et/ou importées par l'utilisateur
 
 ## "Mes favoris"
 
