@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="jon_snow">#FCF7F8</color>
+    <color name="gold_metallic">#DBB957</color>
+    <color name="select_green">#43D12C</color>
+    <color name="home_green">#BDF4DA</color>
+    <color name="gray_1">#333333</color>
 </resources>
