@@ -5,14 +5,14 @@ import android.media.Image
 class RecipePreview {
     var nom: String
         private set
-    var picture: Image
+    var picture: String
         private set
     var isFavorite: Boolean
         private set
 
     constructor(
         nom: String,
-        image: Image,
+        image: String,
         isFavorite: Boolean
     ) { //Premier constructeur ( à partir d'une recette)
         this.nom = nom
@@ -20,7 +20,7 @@ class RecipePreview {
         this.isFavorite = isFavorite
     }
 
-    constructor(nom: String, image: Image) {
+    constructor(nom: String, image: String) {
         this.nom = nom
         picture = image
         isFavorite = false

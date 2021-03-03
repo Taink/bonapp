@@ -7,7 +7,7 @@ class Recipe(
     var nom: String,
     var ingredients: ArrayList<Ingredient>,
     var steps: ArrayList<String>,
-    var picture: Image
+    var picture: String
 ) {
     private var isFavorite = false
 
