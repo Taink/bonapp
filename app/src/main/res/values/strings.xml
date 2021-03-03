@@ -3,4 +3,64 @@
     <string name="title_home">Home</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_recipes">My recipes</string>
+    <string name="recipeimage_contentdesc">recipeImage</string>
+    <string name="recipefavoritestate_contentdesc">recipeFavoriteState</string>
+
+    <string-array name="recipe_names">
+        <item>Rôti de porc</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+    </string-array>
 </resources>
