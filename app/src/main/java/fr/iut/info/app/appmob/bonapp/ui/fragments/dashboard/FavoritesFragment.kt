@@ -1,4 +1,4 @@
-package fr.iut.info.app.appmob.bonapp.ui.dashboard
+package fr.iut.info.app.appmob.bonapp.ui.fragments.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater
