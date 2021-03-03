@@ -4,7 +4,7 @@ import android.media.Image
 import java.util.*
 
 class Recipe(
-    var nom: String,
+    var name: String,
     var ingredients: ArrayList<Ingredient>,
     var steps: ArrayList<String>,
     var picture: String
@@ -12,7 +12,7 @@ class Recipe(
     private var isFavorite = false
 
     fun createPreview(): RecipePreview {
-        return RecipePreview(nom, picture, isFavorite)
+        return RecipePreview(name, picture, isFavorite)
     }
 
     fun addSteps(step: String) {
