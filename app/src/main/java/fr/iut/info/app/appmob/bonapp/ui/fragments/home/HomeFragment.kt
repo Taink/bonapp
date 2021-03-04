@@ -8,53 +8,71 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import fr.iut.info.app.appmob.bonapp.R
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
+import fr.iut.info.app.appmob.bonapp.ui.widgets.RecipePreviewRecyclerAdapter
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var recipeAdapter: RecipePreviewRecyclerAdapter
+    private var randomNbr = 0
 
-    fun createRecipeList(): ArrayList<RecipePreview> {
+    private fun getRandomImage(): String {
+        return "https://picsum.photos/500?random=$randomNbr"
+    }
+
+    private fun createRecipeList(): ArrayList<RecipePreview> {
+        randomNbr++
         val names = resources.getStringArray(R.array.recipe_names)
 
         val list = ArrayList<RecipePreview>()
         list.add(
             RecipePreview(
                 names.random(),
-                null,
+                getRandomImage(),
                 false
             )
         )
         list.add(
             RecipePreview(
                 names.random(),
-                null,
+                getRandomImage(),
                 false
             )
         )
         list.add(
             RecipePreview(
                 names.random(),
-                null,
+                getRandomImage(),
                 false
             )
         )
         list.add(
             RecipePreview(
                 names.random(),
-                null,
+                getRandomImage(),
                 false
             )
         )
         list.add(
             RecipePreview(
                 names.random(),
-                null,
+                getRandomImage(),
                 false
             )
         )
         return list
+    }
+
+    private fun initRecyclerView(root: View) {
+        recipeAdapter = RecipePreviewRecyclerAdapter()
+        root.findViewById<RecyclerView>(R.id.home_recyclerview).apply{
+            layoutManager = LinearLayoutManager(this.context)
+            adapter = recipeAdapter
+        }
     }
 
     override fun onCreateView(
@@ -62,16 +80,12 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        @Suppress("UNUSED_VARIABLE")
-        var recipeList = createRecipeList()
-
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
+        initRecyclerView(root)
+        val recipeList = createRecipeList()
+        recipeAdapter.submitList(recipeList)
+
         return root
     }
 }
