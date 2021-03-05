@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.iut.info.app.appmob.bonapp.R
@@ -29,6 +26,41 @@ class HomeFragment : Fragment() {
         val names = resources.getStringArray(R.array.recipe_names)
 
         val list = ArrayList<RecipePreview>()
+        list.add(
+            RecipePreview(
+                names.random(),
+                getRandomImage(),
+                false
+            )
+        )
+        list.add(
+            RecipePreview(
+                names.random(),
+                getRandomImage(),
+                false
+            )
+        )
+        list.add(
+            RecipePreview(
+                names.random(),
+                getRandomImage(),
+                false
+            )
+        )
+        list.add(
+            RecipePreview(
+                names.random(),
+                getRandomImage(),
+                false
+            )
+        )
+        list.add(
+            RecipePreview(
+                names.random(),
+                getRandomImage(),
+                false
+            )
+        )
         list.add(
             RecipePreview(
                 names.random(),
