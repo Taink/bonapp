@@ -1,4 +1,4 @@
-package fr.iut.info.app.appmob.bonapp.ui.fragments.dashboard
+package fr.iut.info.app.appmob.bonapp.ui.fragments.favorites
 
 import android.os.Bundle
 import android.view.LayoutInflater
