@@ -21,6 +21,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
                 .commit()
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_navigate_before_black_24dp)
         val recipeID = intent.getIntExtra(RECIPE_POSITION, -1)
         if (recipeID >= 0) {
             Toast.makeText(this, "Id de la recette : $recipeID", Toast.LENGTH_SHORT).show()
