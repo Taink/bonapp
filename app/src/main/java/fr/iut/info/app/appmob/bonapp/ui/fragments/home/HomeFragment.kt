@@ -18,11 +18,11 @@ class HomeFragment : Fragment() {
     private var randomNbr = 0
 
     private fun getRandomImage(): String {
+        randomNbr++
         return "https://picsum.photos/500?random=$randomNbr"
     }
 
     private fun createRecipeList(): ArrayList<RecipePreview> {
-        randomNbr++
         val names = resources.getStringArray(R.array.recipe_names)
 
         val list = ArrayList<RecipePreview>()
