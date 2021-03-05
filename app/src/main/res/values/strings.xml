@@ -1,66 +1,25 @@
 <resources>
     <string name="app_name">BonApp\'</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">BonApp\'</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_recipes">My recipes</string>
     <string name="recipeimage_contentdesc">recipeImage</string>
     <string name="recipefavoritestate_contentdesc">recipeFavoriteState</string>
+    <string name="title_activity_recipe_details">RecipeDetailsActivity</string>
 
-    <string-array name="recipe_names">
-        <item>Rôti de porc</item>
-        <item>Chili con carne</item>
-        <item>Confit de canard</item>
-        <item>Légumes farcis</item>
-        <item>Onigirazu</item>
-        <item>Tacos</item>
-        <item>Panna cotta aux fruits rouges</item>
-        <item>Bento Box à la viande</item>
-        <item>Burger à l\'encre de seiche</item>
-        <item>Poulet façon coq au vin</item>
-        <item>Chili con carne</item>
-        <item>Confit de canard</item>
-        <item>Légumes farcis</item>
-        <item>Onigirazu</item>
-        <item>Tacos</item>
-        <item>Panna cotta aux fruits rouges</item>
-        <item>Bento Box à la viande</item>
-        <item>Burger à l\'encre de seiche</item>
-        <item>Poulet façon coq au vin</item>
-        <item>Chili con carne</item>
-        <item>Confit de canard</item>
-        <item>Légumes farcis</item>
-        <item>Onigirazu</item>
-        <item>Tacos</item>
-        <item>Panna cotta aux fruits rouges</item>
-        <item>Bento Box à la viande</item>
-        <item>Burger à l\'encre de seiche</item>
-        <item>Poulet façon coq au vin</item>
-        <item>Chili con carne</item>
-        <item>Confit de canard</item>
-        <item>Légumes farcis</item>
-        <item>Onigirazu</item>
-        <item>Tacos</item>
-        <item>Panna cotta aux fruits rouges</item>
-        <item>Bento Box à la viande</item>
-        <item>Burger à l\'encre de seiche</item>
-        <item>Poulet façon coq au vin</item>
-        <item>Chili con carne</item>
-        <item>Confit de canard</item>
-        <item>Légumes farcis</item>
-        <item>Onigirazu</item>
-        <item>Tacos</item>
-        <item>Panna cotta aux fruits rouges</item>
-        <item>Bento Box à la viande</item>
-        <item>Burger à l\'encre de seiche</item>
-        <item>Poulet façon coq au vin</item>
-        <item>Chili con carne</item>
-        <item>Confit de canard</item>
-        <item>Légumes farcis</item>
-        <item>Onigirazu</item>
-        <item>Tacos</item>
-        <item>Panna cotta aux fruits rouges</item>
-        <item>Bento Box à la viande</item>
-        <item>Burger à l\'encre de seiche</item>
-        <item>Poulet façon coq au vin</item>
-    </string-array>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">
+        Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>
