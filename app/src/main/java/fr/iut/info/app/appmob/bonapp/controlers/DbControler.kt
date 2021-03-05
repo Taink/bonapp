@@ -10,6 +10,8 @@ import fr.iut.info.app.appmob.bonapp.recettes.Ingredient
 import fr.iut.info.app.appmob.bonapp.recettes.Recipe
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class DbControler {
@@ -18,27 +20,33 @@ class DbControler {
     private lateinit var database: DatabaseReference
     // [END declare_database_ref]
 
-    init {
+    constructor(){
         database = Firebase.database.reference
     }
 
-    fun getRecipesPreviews() : Array<RecipePreview>? {
-        //GenericTypeIndicator<List<Recipe>> recettes = new GenericTypeIndicator<List<Recipe>>(){};
-        val ti = object : GenericTypeIndicator<List<fr.iut.info.app.appmob.bonapp.db.models.Recipe>>(){}
+
+    fun getRecipesPreviews() : HashMap<String,RecipePreview> {
+        //val listPreview = arrayListOf<RecipePreview>()
+        val mapListPreview:HashMap<String,RecipePreview> = HashMap<String,RecipePreview>()
         database.child("recipies")
             .get()
             .addOnSuccessListener { recipes ->
                 for (recipe in recipes.children){
 
-                    var r = recipe.getValue(ti)
+                    var name = recipe.child("name").getValue<String>()
+                    var image = recipe.child("picture").getValue<String>()
+                    //val recette = recipe.getValue<fr.iut.info.app.appmob.bonapp.db.models.Recipe>()
+                    val prev = RecipePreview(name, image)
+                    if (recipe.key != null){
+                        mapListPreview[recipe.key as String] = prev
+                    }
+                    Log.i("recette",prev.name)
                 }
             Log.i("firebase","Value ${recipes.value}")
         }   .addOnFailureListener{
             Log.e("firebase","Error while retrieving recipes",it)
         }
-
-
-        return null
+        return mapListPreview
     }
 
     fun getRecipe() : Recipe?{

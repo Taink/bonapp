@@ -1,9 +1,9 @@
 package fr.iut.info.app.appmob.bonapp.recettes
 
 class RecipePreview {
-    var name: String
+    lateinit var name: String
         private set
-    var picture: String
+    lateinit var picture: String
         private set
     var isFavorite: Boolean
         private set
@@ -19,9 +19,14 @@ class RecipePreview {
         this.isFavorite = isFavorite
     }
 
-    constructor(name: String, image: String) {
-        this.name = name
-        picture = image
+    constructor(name: String?, image: String?) {
+        if (name != null) {
+            this.name = name
+        }
+        else
+        if (image != null) {
+            picture = image
+        }
         isFavorite = false
     }
 
