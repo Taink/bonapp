@@ -14,7 +14,7 @@ import fr.iut.info.app.appmob.bonapp.R
 import fr.iut.info.app.appmob.bonapp.RecipeDetailsActivity
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 
-class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: List<RecipePreview> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -35,7 +35,7 @@ class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder
         return items.size
     }
 
-    fun submitList(recipeList: List<RecipePreview>) {
+     open fun submitList(recipeList: List<RecipePreview>) {
         items = recipeList
     }
 
