@@ -1,30 +1,32 @@
 package fr.iut.info.app.appmob.bonapp.recettes
 
-import android.media.Image
-import java.util.*
+import fr.iut.info.app.appmob.bonapp.db.models.Step
+import kotlin.collections.ArrayList
 
 class Recipe(
-    var name: String,
-    var ingredients: ArrayList<Ingredient>,
-    var steps: ArrayList<String>,
-    var picture: String
+    var name: String?,
+    var ingredients: ArrayList<Ingredient>?,
+    var steps: ArrayList<Step>?,
+    var picture: String?,
+    var key:String?
 ) {
-    private var isFavorite = false
 
-    fun createPreview(): RecipePreview {
-        return RecipePreview(name, picture, isFavorite)
+    constructor(){}
+
+    fun createPreview(): RecipePreview? {
+
+        //return RecipePreview(name, picture, isFavorite)
+        return null
     }
 
-    fun addSteps(step: String) {
-        steps.add(step)
+    fun addSteps(step: Step) {
+        steps?.add(step)
     }
 
     fun addIngredient(ingredient: Ingredient) {
-        ingredients.add(ingredient)
+        ingredients?.add(ingredient)
     }
 
-    fun changeFavorite() {
-        if (isFavorite) isFavorite = false else isFavorite = true
-    }
+
 
 }

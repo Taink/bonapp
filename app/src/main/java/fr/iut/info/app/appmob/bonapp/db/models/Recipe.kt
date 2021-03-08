@@ -9,17 +9,17 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class Recipe{
+    var ingredients: ArrayList<Ingredient>? =null
+        private set
     var name: String? = null
         private set
     var image: String? = null
-        private set
-    var ingredients: ArrayList<Ingredient>? =null
         private set
     var steps: ArrayList<Step>? = null
         private set
 
     private constructor(){}
-    constructor(name:String?,image:String?,ingredients:ArrayList<Ingredient>,steps:ArrayList<Step>){
+    constructor(ingredients:ArrayList<Ingredient>,name:String?,image:String?,steps:ArrayList<Step>){
         this.name=name
         this.image=image
         this.ingredients=ingredients
