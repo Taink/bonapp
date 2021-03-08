@@ -1,8 +1,7 @@
-package fr.iut.info.app.appmob.bonapp.controlers
+package fr.iut.info.app.appmob.bonapp.controllers
 
 import android.util.Log
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.GenericTypeIndicator
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -10,11 +9,10 @@ import fr.iut.info.app.appmob.bonapp.recettes.Ingredient
 import fr.iut.info.app.appmob.bonapp.recettes.Recipe
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
-class DbControler {
+class DbController {
 
     // [START declare_database_ref]
     private lateinit var database: DatabaseReference
