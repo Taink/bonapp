@@ -11,7 +11,7 @@ class Recipe(
     var key:String?
 ) {
 
-    constructor(){}
+    constructor() : this(null,null,null,null,null){}
 
     fun createPreview(): RecipePreview? {
 
