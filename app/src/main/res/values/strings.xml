@@ -22,4 +22,9 @@
         Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="ingredientlist_title">Ingredients</string>
+    <string name="minus_button_contentdesc">minus_button</string>
+    <string name="plus_button_contentdesc">plus_button</string>
+    <string name="placeholder_peopleamnt">4 personnes</string>
+    <string name="steplist_title">Preparation</string>
 </resources>
