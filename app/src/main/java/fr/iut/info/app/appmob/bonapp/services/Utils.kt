@@ -9,7 +9,7 @@ fun ingredientsMultiplier(
     numberOfPeople: Int
 ): ArrayList<Ingredient> {
     for (i in ingredients) {
-        i.quantity = i.quantity * numberOfPeople
+        i.quantity = i.quantity?.times(numberOfPeople)
     }
     return ingredients
 }
