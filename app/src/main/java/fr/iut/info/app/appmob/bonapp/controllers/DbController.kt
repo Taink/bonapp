@@ -16,6 +16,7 @@ import fr.iut.info.app.appmob.bonapp.recettes.Recipe
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 import fr.iut.info.app.appmob.bonapp.services.inList
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
@@ -58,24 +59,33 @@ class DbController {
     }
 
     fun getRecipe(num:String) : Recipe?{
-        var rF = Recipe()
-        database.child("recipies").child(num).get().addOnSuccessListener {
-
-            val recette = it.getValue<fr.iut.info.app.appmob.bonapp.db.models.Recipe>()
-
-            if (recette != null) {
-                rF.name = recette.name
-                rF.picture = recette.image
-                rF.ingredients = recette.ingredients
-                rF.steps = recette.steps
-                rF.key = it.key
+       var recetteFinal = Recipe()
+        database.child("recipies").child(num).get().addOnSuccessListener {recipe ->
+            /*val recettekey = recipe.key
+            var name = recipe.child("name").getValue<String>()
+            var image = recipe.child("picture").getValue<String>()
+            val ingredients = ArrayList<Ingredient>()
+            for (i in recipe.child("ingredients").children){
+                val newIng = Ingredient(i.child("name").getValue<String>(),i.child("quantity").getValue<Float>(),i.child("unite").getValue<String>())
+                if (i.key != null){
+                    ingredients.add(newIng)
+                }
             }
-
-            //return@addOnSuccessListener
+            val etapes = ArrayList<Step>()
+            for (s in recipe.child("steps").children){
+                if(s.key !=null){
+                    val step = Step(s.getValue<String>())
+                    etapes.add(step)
+                }
+            }
+            Log.i("jpep","data retrieved : $recettekey")
+            if (recettekey != null) {
+                //recetteFinal.setAll(name,ingredients,etapes,image,recettekey)
+            }*/
         }.addOnFailureListener{
             Log.e("firebase","Error while retrieving recipe",it)
             }
-        return rF
+        return recetteFinal
     }
 
     fun getAllFavorite(): HashMap<String, RecipePreview> {
