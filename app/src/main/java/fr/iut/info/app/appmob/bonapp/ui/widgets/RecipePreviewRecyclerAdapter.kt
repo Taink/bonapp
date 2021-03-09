@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,6 +16,7 @@ import fr.iut.info.app.appmob.bonapp.RecipeDetailsActivity
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 
 open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     private var items: List<RecipePreview> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -48,7 +50,6 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
 
         fun bind(recipePreview: RecipePreview) {
             recipeName.setText(recipePreview.name)
-            // TODO: recipeFavoriteState
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_missing_image_black_24dp)
@@ -57,6 +58,12 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
             Glide.with(itemView.context)
                 .load(recipePreview.picture)
                 .into(recipeImage)
+
+            if (recipePreview.isFavorite){
+                recipeFavoriteState.setImageResource(R.drawable.ic_star_black_24dp)
+            }
+
+
         }
 
         init {
@@ -69,6 +76,16 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
                     startActivity(it.context, detailsIntent, null)
                 }
             }
+
+            recipeFavoriteState.setOnClickListener{
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+
+                    Toast.makeText(itemView.context, position.toString(), Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
         }
     }
 }

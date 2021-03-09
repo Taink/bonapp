@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
             RecipePreview(
                 names.random(),
                 getRandomImage(),
-                false
+                true
             )
         )
         list.add(
@@ -58,21 +58,21 @@ class HomeFragment : Fragment() {
             RecipePreview(
                 names.random(),
                 getRandomImage(),
-                false
+                true
             )
         )
         list.add(
             RecipePreview(
                 names.random(),
                 getRandomImage(),
-                false
+                true
             )
         )
         list.add(
             RecipePreview(
                 names.random(),
                 getRandomImage(),
-                false
+                true
             )
         )
         list.add(
