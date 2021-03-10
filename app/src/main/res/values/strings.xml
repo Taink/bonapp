@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">BonApp\'</string>
-    <string name="title_home">BonApp\'</string>
+    <string name="app_name" translatable="false">BonApp\'</string>
+    <string name="title_home" translatable="false">BonApp\'</string>
     <string name="title_favorites">Favorites</string>
     <string name="title_recipes">My recipes</string>
-    <string name="recipeimage_contentdesc">recipeImage</string>
-    <string name="recipefavoritestate_contentdesc">recipeFavoriteState</string>
+    <string name="recipeimage_contentdesc" translatable="false">recipeImage</string>
+    <string name="recipefavoritestate_contentdesc" translatable="false">recipeFavoriteState</string>
     <string name="title_activity_recipe_details" translatable="false">%1$s</string>
 
     <!-- Preference Titles -->
@@ -21,8 +21,8 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="ingredientlist_title">Ingredients</string>
-    <string name="minus_button_contentdesc">minus_button</string>
-    <string name="plus_button_contentdesc">plus_button</string>
+    <string name="minus_button_contentdesc" translatable="false">minus_button</string>
+    <string name="plus_button_contentdesc" translatable="false">plus_button</string>
     <string name="people_amount">%1$d serving(s)</string>
     <string name="steplist_title">Preparation</string>
     <string name="addcart_button_contentdesc" translatable="false">add to cart button</string>
