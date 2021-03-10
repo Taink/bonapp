@@ -14,7 +14,7 @@ import fr.iut.info.app.appmob.bonapp.recettes.Recipe
 class RecipeDetailsActivity : AppCompatActivity() {
 
     companion object {
-        const val RECIPE_POSITION = "fr.iut.info.app.appmob.bonapp.RECIPE_NUMBER"
+        const val RECIPE_ID = "fr.iut.info.app.appmob.bonapp.RECIPE_ID"
     }
 
     private fun fetchRecipe(): Recipe {
@@ -60,7 +60,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
         }*/
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_navigate_before_black_24dp)
-        val recipeID = intent.getIntExtra(RECIPE_POSITION, -1)
+        val recipeID = intent.getIntExtra(RECIPE_ID, -1)
         val recipe = fetchRecipe()
 
         val recipeNameView = findViewById<TextView>(R.id.details_recipe_name)
