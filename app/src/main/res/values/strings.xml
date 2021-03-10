@@ -5,7 +5,7 @@
     <string name="title_recipes">My recipes</string>
     <string name="recipeimage_contentdesc" translatable="false">recipeImage</string>
     <string name="recipefavoritestate_contentdesc" translatable="false">recipeFavoriteState</string>
-    <string name="title_activity_recipe_details" translatable="false">%1$s</string>
+    <string name="title_activity_recipe_details">Recipe for %1$s</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
