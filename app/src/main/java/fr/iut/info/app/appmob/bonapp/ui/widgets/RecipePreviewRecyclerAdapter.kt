@@ -71,7 +71,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val detailsIntent = Intent(it.context, RecipeDetailsActivity::class.java).apply {
-                        putExtra(RecipeDetailsActivity.RECIPE_POSITION, position)
+                        putExtra(RecipeDetailsActivity.RECIPE_ID, position)
                     }
                     startActivity(it.context, detailsIntent, null)
                 }
