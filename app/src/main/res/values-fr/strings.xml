@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_favorites">Favoris</string>
+    <string name="title_recipes">Mes recettes</string>
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Synchronisation</string>
+    <string name="attachment_summary_on">Télécharger automatiquement les pièces jointes sur les emails reçus</string>
+    <string name="attachment_summary_off">Ne télécharger les pièces jointes que lorsque demandé</string>
+    <string name="ingredientlist_title">Ingrédients</string>
+    <string name="steplist_title">Préparation</string>
+    <string name="people_amount">%1$d personne(s)</string>
+    <string name="step_name">Étape %1$d :</string>
+    <string name="signature_title">Votre signature</string>
+    <string name="reply_title">Action de réponse par défaut</string>
+    <string name="sync_title">Synchroniser les emails périodiquement</string>
+    <string name="attachment_title">Télécharger les pièces jointes reçues</string>
+    <string name="title_activity_recipe_details">Recette de %1$s</string>
+</resources>

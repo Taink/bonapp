@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BonApp">
         <activity
+            android:name=".RecipeDetailsActivity"
+            android:label="@string/title_activity_recipe_details"
+            android:parentActivityName=".MainActivity"/>
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>

@@ -1,28 +1,32 @@
 package fr.iut.info.app.appmob.bonapp.recettes
 
-import android.media.Image
-
 class RecipePreview {
-    var nom: String
+    lateinit var name: String
         private set
-    var picture: Image
+    lateinit var picture: String
         private set
     var isFavorite: Boolean
         private set
 
+    // Premier constructeur ( à partir d'une recette)
     constructor(
-        nom: String,
-        image: Image,
+        name: String,
+        image: String,
         isFavorite: Boolean
-    ) { //Premier constructeur ( à partir d'une recette)
-        this.nom = nom
+    ) {
+        this.name = name
         picture = image
         this.isFavorite = isFavorite
     }
 
-    constructor(nom: String, image: Image) {
-        this.nom = nom
-        picture = image
+    constructor(name: String?, image: String?) {
+        if (name != null) {
+            this.name = name
+        }
+        else
+        if (image != null) {
+            picture = image
+        }
         isFavorite = false
     }
 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@color/jon_snow"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="0dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:strokeColor="@color/home_green"
+    app:strokeWidth="1dp" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/step_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/flag_contentdesc"
+            app:tint="@color/gray_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_flag_black_24dp" />
+
+        <TextView
+            android:id="@+id/step_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/step_name"
+            android:textColor="@color/gray_1"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/step_flag"
+            app:layout_constraintStart_toEndOf="@+id/step_flag"
+            tools:text="Step 1:" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/gray_1"
+            app:layout_constraintEnd_toEndOf="@+id/step_name"
+            app:layout_constraintStart_toStartOf="@+id/step_flag"
+            app:layout_constraintTop_toBottomOf="@+id/step_flag" />
+
+        <TextView
+            android:id="@+id/step_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="6dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/gray_1"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:text="Faites saisir le rôti sur chaque face dans une poêle. Enfournez pendant une heure et demi à 180°. Au bout d’une demie heure de cuisson, ajouter le plat de pommes de terre dans le four. Mélangez-les plusieurs fois pendant la cuisson pour qu’elles dorent de tous les côtés." />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

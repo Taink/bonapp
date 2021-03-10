@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="fr.iut.info.app.appmob.bonapp.ui.home.HomeFragment"
+        android:name="fr.iut.info.app.appmob.bonapp.ui.fragments.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_favorites"
-        android:name="fr.iut.info.app.appmob.bonapp.ui.dashboard.FavoritesFragment"
+        android:name="fr.iut.info.app.appmob.bonapp.ui.fragments.favorites.FavoritesFragment"
         android:label="@string/title_favorites"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/navigation_recipes"
-        android:name="fr.iut.info.app.appmob.bonapp.ui.notifications.RecipesFragment"
+        android:name="fr.iut.info.app.appmob.bonapp.ui.fragments.recipes.RecipesFragment"
         android:label="@string/title_recipes"
         tools:layout="@layout/fragment_recipes" />
 </navigation>

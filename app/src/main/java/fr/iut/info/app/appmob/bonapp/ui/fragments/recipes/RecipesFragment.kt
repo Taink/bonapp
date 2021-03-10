@@ -1,4 +1,4 @@
-package fr.iut.info.app.appmob.bonapp.ui.dashboard
+package fr.iut.info.app.appmob.bonapp.ui.fragments.recipes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import fr.iut.info.app.appmob.bonapp.R
 
-class FavoritesFragment : Fragment() {
+class RecipesFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: FavoritesViewModel
+    private lateinit var notificationsViewModel: RecipesViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(FavoritesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_favorites, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        notificationsViewModel =
+                ViewModelProvider(this).get(RecipesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_recipes, container, false)
+        val textView: TextView = root.findViewById(R.id.text_notifications)
+        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

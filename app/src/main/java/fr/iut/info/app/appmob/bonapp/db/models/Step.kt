@@ -1,5 +1,8 @@
 package fr.iut.info.app.appmob.bonapp.db.models
 
+import com.google.firebase.database.IgnoreExtraProperties
+
+@IgnoreExtraProperties
 class Step(
-    var text: String
-)
+    val text: String? = null
+    )

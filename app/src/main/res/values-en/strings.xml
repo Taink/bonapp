@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_recipes">My recipes</string>
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="ingredientlist_title">Ingredients</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="steplist_title">Preparation</string>
+    <string name="people_amount">%1$d serving(s)</string>
+    <string name="step_name">Step %1$d:</string>
+    <string name="title_activity_recipe_details">Recipe for %1$s</string>
+</resources>

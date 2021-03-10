@@ -1,0 +1,25 @@
+<resources>
+    <string-array name="recipe_names">
+        <item>Rôti de porc</item>
+        <item>Chili con carne</item>
+        <item>Confit de canard</item>
+        <item>Légumes farcis</item>
+        <item>Onigirazu</item>
+        <item>Tacos</item>
+        <item>Panna cotta aux fruits rouges</item>
+        <item>Bento Box à la viande</item>
+        <item>Burger à l\'encre de seiche</item>
+        <item>Poulet façon coq au vin</item>
+    </string-array>
+
+    <!-- Reply Preference -->
+    <string-array name="reply_entries">
+        <item>Reply</item>
+        <item>Reply to all</item>
+    </string-array>
+
+    <string-array name="reply_values">
+        <item>reply</item>
+        <item>reply_all</item>
+    </string-array>
+</resources>
