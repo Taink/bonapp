@@ -54,17 +54,17 @@
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/recipe_favoritestate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <CheckBox
+            android:id="@+id/recipe_favorite"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="@string/recipefavoritestate_contentdesc"
+            android:layout_marginEnd="8dp"
+            android:button="@drawable/sl_favorite_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recipe_name"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_star_outline_black_24dp" />
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

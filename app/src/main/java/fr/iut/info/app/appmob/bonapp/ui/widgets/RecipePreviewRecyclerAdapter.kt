@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -46,7 +47,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
     ): RecyclerView.ViewHolder(itemView) {
         val recipeName = itemView.findViewById<TextView>(R.id.recipe_name)
         val recipeImage = itemView.findViewById<ImageView>(R.id.recipe_image)
-        val recipeFavoriteState = itemView.findViewById<ImageView>(R.id.recipe_favoritestate)
+        val recipeFavoriteState = itemView.findViewById<CheckBox>(R.id.recipe_favorite)
 
         fun bind(recipePreview: RecipePreview) {
             recipeName.setText(recipePreview.name)
@@ -60,7 +61,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
                 .into(recipeImage)
 
             if (recipePreview.isFavorite){
-                recipeFavoriteState.setImageResource(R.drawable.ic_star_black_24dp)
+                recipeFavoriteState.isChecked = true
             }
 
 
@@ -77,15 +78,14 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
                 }
             }
 
-            recipeFavoriteState.setOnClickListener{
+            recipeFavoriteState.setOnCheckedChangeListener { checkBox, isChecked ->
                 val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-
-                    Toast.makeText(itemView.context, position.toString(), Toast.LENGTH_SHORT).show()
-
-                }
+                Toast.makeText(
+                    itemView.context,
+                    "$position est maintenant ${if (isChecked) "favorite" else "non favorite"}",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-
         }
     }
 }
