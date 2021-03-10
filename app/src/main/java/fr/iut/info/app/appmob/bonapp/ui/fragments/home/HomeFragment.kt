@@ -13,7 +13,6 @@ import fr.iut.info.app.appmob.bonapp.ui.widgets.RecipePreviewRecyclerAdapter
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
     private lateinit var recipeAdapter: RecipePreviewRecyclerAdapter
     private var randomNbr = 0
 

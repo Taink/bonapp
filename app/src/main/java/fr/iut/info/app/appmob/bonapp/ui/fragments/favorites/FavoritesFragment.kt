@@ -4,20 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import fr.iut.info.app.appmob.bonapp.R
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 import fr.iut.info.app.appmob.bonapp.ui.widgets.FavoriteRecipePreviewRecyclerAdapter
-import fr.iut.info.app.appmob.bonapp.ui.widgets.RecipePreviewRecyclerAdapter
 
 class FavoritesFragment : Fragment() {
-
-    private lateinit var favoritesFragment: FavoritesFragment
 
     private lateinit var favoriteRecipeAdapter: FavoriteRecipePreviewRecyclerAdapter
     private var randomNbr = 0
