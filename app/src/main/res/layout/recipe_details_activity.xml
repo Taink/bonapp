@@ -104,7 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@string/placeholder_peopleamnt"
+                    android:text="@string/people_amount"
                     android:textColor="@color/gray_1"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"
