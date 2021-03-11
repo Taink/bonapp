@@ -1,6 +1,10 @@
 package fr.iut.info.app.appmob.bonapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -85,6 +89,8 @@ class RecipeDetailsActivity : AppCompatActivity() {
         }*/
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_navigate_before_black_24dp)
+
+
         val recipeID = intent.getIntExtra(RECIPE_ID, -1)
         val recipe = fetchRecipe()
 
@@ -118,6 +124,32 @@ class RecipeDetailsActivity : AppCompatActivity() {
             Toast.makeText(this, "Il y a eu une erreur", Toast.LENGTH_SHORT).show()
         }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater;
+        inflater.inflate(R.menu.recipedeatailsmenu,menu)
+
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.share -> {
+
+            val myShare = Intent(Intent.ACTION_SEND)
+            myShare.type = "text/plain"
+            myShare.putExtra(Intent.EXTRA_TEXT,"Salut, je te recommande la recette: " + fetchRecipe().name + ". \nJe l'ai trouvé sur l'application BonApp' ! \nhttps://play.google.com/store")
+            startActivity(Intent.createChooser(myShare,"Share"))
+
+            true
+        }
+
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
+    }
+
 
     /*class RecipeFragment : PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
