@@ -8,11 +8,12 @@ import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 import java.lang.reflect.Constructor
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 @IgnoreExtraProperties
 class Recipe(
-    val ingredients: ArrayList<Ingredient>? =null,
+    val ingredients: HashMap<String,Ingredient>? =null,
     val name: String? = null,
     val image: String? = null,
-    val steps: ArrayList<Step>? = null
+    val steps: HashMap<String,Step>? = null
     )
