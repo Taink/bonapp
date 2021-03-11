@@ -1,5 +1,7 @@
 package fr.iut.info.app.appmob.bonapp.recettes
 
+import fr.iut.info.app.appmob.bonapp.db.room.Favorite
+
 class RecipePreview {
     lateinit var name: String
         private set
@@ -28,6 +30,10 @@ class RecipePreview {
             picture = image
         }
         isFavorite = false
+    }
+
+    fun changeFavorite(){
+        isFavorite =!isFavorite
     }
 
 }
