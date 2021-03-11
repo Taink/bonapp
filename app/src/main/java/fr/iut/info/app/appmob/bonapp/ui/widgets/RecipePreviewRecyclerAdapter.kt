@@ -1,6 +1,7 @@
 package fr.iut.info.app.appmob.bonapp.ui.widgets
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,11 +19,30 @@ import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 
 open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var items: List<RecipePreview> = ArrayList()
+    protected var items: ArrayList<RecipePreview> = ArrayList()
+
+    private var mListener: OnItemClickListener? = null
+
+    interface OnItemClickListener {
+        fun onClick(position: Int, isChecked: Boolean)
+    }
+
+    open fun setOnItemClickListener(listener: OnItemClickListener?) {
+        mListener = listener
+    }
+
+    open fun removeItem(position: Int, isChecked: Boolean){
+        items[position].changeFavorite()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return RecipePreviewViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.recipe_list_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.recipe_list_item, parent, false),
+            object : OnItemClickListener {
+                override fun onClick(position: Int, isChecked: Boolean) {
+                    removeItem(position, isChecked)
+                }
+            }
         )
     }
 
@@ -38,12 +58,13 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
         return items.size
     }
 
-     open fun submitList(recipeList: List<RecipePreview>) {
+     open fun submitList(recipeList: ArrayList<RecipePreview>) {
         items = recipeList
     }
 
-    class RecipePreviewViewHolder (
-        itemView: View
+    class RecipePreviewViewHolder(
+        itemView: View,
+        listener: OnItemClickListener
     ): RecyclerView.ViewHolder(itemView) {
         val recipeName = itemView.findViewById<TextView>(R.id.recipe_name)
         val recipeImage = itemView.findViewById<ImageView>(R.id.recipe_image)
@@ -64,7 +85,6 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
                 recipeFavoriteState.isChecked = true
             }
 
-
         }
 
         init {
@@ -80,11 +100,10 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
 
             recipeFavoriteState.setOnCheckedChangeListener { checkBox, isChecked ->
                 val position = adapterPosition
-                Toast.makeText(
-                    itemView.context,
-                    "$position est maintenant ${if (isChecked) "favorite" else "non favorite"}",
-                    Toast.LENGTH_SHORT
-                ).show()
+
+                Log.i("Favorite","$position est maintenant ${if (isChecked) "favorite" else "non favorite"}")
+
+                listener.onClick(position,isChecked)
             }
         }
     }
