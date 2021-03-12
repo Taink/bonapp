@@ -2,7 +2,7 @@
 <resources>
     <string name="title_favorites">Favoris</string>
     <string name="title_recipes">Mes recettes</string>
-    <string name="messages_header">Messages</string>
+    <string name="themes_header">Thème</string>
     <string name="sync_header">Synchronisation</string>
     <string name="attachment_summary_on">Télécharger automatiquement les pièces jointes sur les emails reçus</string>
     <string name="attachment_summary_off">Ne télécharger les pièces jointes que lorsque demandé</string>
