@@ -58,9 +58,9 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
         return items.size
     }
 
-     open fun submitList(recipeList: ArrayList<RecipePreview>) {
+    open fun submitList(recipeList: ArrayList<RecipePreview>) {
         items = recipeList
-        Log.e("IMPORTANT", items.toString())
+        notifyDataSetChanged()
     }
 
     class RecipePreviewViewHolder(
@@ -74,7 +74,6 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
         fun bind(recipePreview: RecipePreview) {
             recipeName.setText(recipePreview.name)
 
-            Log.e("IMPORTANT", recipePreview.toString())
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_missing_image_black_24dp)
@@ -84,7 +83,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
                 .load(recipePreview.picture)
                 .into(recipeImage)
 
-            if (recipePreview.isFavorite){
+            if (recipePreview.isFavorite) {
                 recipeFavoriteState.isChecked = true
             }
 
