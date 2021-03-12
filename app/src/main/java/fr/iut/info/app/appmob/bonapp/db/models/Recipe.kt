@@ -14,6 +14,6 @@ import kotlin.collections.HashMap
 class Recipe(
     val ingredients: HashMap<String,Ingredient>? =null,
     val name: String? = null,
-    val image: String? = null,
+    val picture: String? = null,
     val steps: HashMap<String,Step>? = null
     )

@@ -1,5 +1,6 @@
 package fr.iut.info.app.appmob.bonapp.ui.widgets
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +40,8 @@ open class IngredientRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHold
         val ingredientName = itemView.findViewById<TextView>(R.id.ingredient_name)
 
         fun bind(ingredient: Ingredient) {
-            ingredientName.setText(ingredient.nom)
+            Log.e("XOAIZHFUIAHFUIO", ingredient.name.toString())
+            ingredientName.setText(ingredient.name)
         }
     }
 }

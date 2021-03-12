@@ -62,7 +62,7 @@ class DbController {
                 val recette = Recipe()
                 recette.name = result.name
                 recette.setKey(klef)
-                recette.picture = result.image
+                recette.picture = result.picture
                 recette.ingredients = result.ingredients
                 recette.steps = result.steps
 

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -36,8 +35,15 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.recipe_list_item, parent, false)
         return RecipePreviewViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.recipe_list_item, parent, false),
+            itemView,
+            { position ->
+                val detailsIntent = Intent(itemView.context, RecipeDetailsActivity::class.java).apply {
+                    putExtra(RecipeDetailsActivity.RECIPE_ID, items[position].klef)
+                }
+                startActivity(itemView.context, detailsIntent, null)
+            },
             object : OnItemClickListener {
                 override fun onClick(position: Int, isChecked: Boolean) {
                     removeItem(position, isChecked)
@@ -65,7 +71,8 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
 
     class RecipePreviewViewHolder(
         itemView: View,
-        listener: OnItemClickListener
+        itemClickListener: (position: Int) -> Unit,
+        favoriteStateClickListener: OnItemClickListener
     ): RecyclerView.ViewHolder(itemView) {
         val recipeName = itemView.findViewById<TextView>(R.id.recipe_name)
         val recipeImage = itemView.findViewById<ImageView>(R.id.recipe_image)
@@ -93,10 +100,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    val detailsIntent = Intent(it.context, RecipeDetailsActivity::class.java).apply {
-                        putExtra(RecipeDetailsActivity.RECIPE_ID, position)
-                    }
-                    startActivity(it.context, detailsIntent, null)
+                    itemClickListener(position)
                 }
             }
 
@@ -105,7 +109,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
 
                 Log.i("Favorite","$position est maintenant ${if (isChecked) "favorite" else "non favorite"}")
 
-                listener.onClick(position,isChecked)
+                favoriteStateClickListener.onClick(position, isChecked)
             }
         }
     }

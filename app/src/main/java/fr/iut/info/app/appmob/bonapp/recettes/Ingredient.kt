@@ -6,7 +6,7 @@ import java.util.ArrayList
 
 @IgnoreExtraProperties
 class Ingredient {
-    var nom: String? = null
+    var name: String? = null
     var quantity: Float? = null
     var unite: String? = null
     var recipes: ArrayList<Recipe>? = null
@@ -17,7 +17,7 @@ class Ingredient {
         unite: String?,
         recipes: ArrayList<Recipe>?
     ) {
-        this.nom = nom
+        this.name = nom
         this.quantity = quantity
         this.unite = unite
         this.recipes = recipes
@@ -25,7 +25,7 @@ class Ingredient {
 
     constructor(){}
     constructor(nom: String?, quantity: Float?, unite: String?) {
-        this.nom = nom
+        this.name = nom
         this.quantity = quantity
         this.unite = unite
         recipes = ArrayList()

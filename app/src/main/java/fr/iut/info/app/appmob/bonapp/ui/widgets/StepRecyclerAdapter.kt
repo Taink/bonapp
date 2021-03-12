@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import fr.iut.info.app.appmob.bonapp.R
 import fr.iut.info.app.appmob.bonapp.db.models.Step
+import java.util.*
+import kotlin.collections.ArrayList
 
 open class StepRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: List<Step> = ArrayList()
@@ -29,7 +31,15 @@ open class StepRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() 
         return items.size
     }
 
-     open fun submitList(stepList: List<Step>) {
+    open fun submitList(stepList: List<Step>) {
+        Collections.sort(stepList, object : Comparator<Step> {
+            override fun compare(o1: Step?, o2: Step?): Int {
+                if (o1?.number != null && o2?.number != null) {
+                    return o1.number - o2.number
+                }
+                return 0
+            }
+        })
         items = stepList
     }
 
@@ -40,7 +50,7 @@ open class StepRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() 
         val stepText = itemView.findViewById<TextView>(R.id.step_text)
 
         fun bind(step: Step) {
-            stepName.setText(itemView.context.getString(R.string.step_name, 1))
+            stepName.setText(itemView.context.getString(R.string.step_name, step.number))
             stepText.setText(step.text)
         }
     }
