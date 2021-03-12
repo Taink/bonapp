@@ -15,4 +15,5 @@
     <string name="people_amount">%1$d serving(s)</string>
     <string name="step_name">Step %1$d:</string>
     <string name="title_activity_recipe_details">Recipe for %1$s</string>
+    <string name="share">Share</string>
 </resources>

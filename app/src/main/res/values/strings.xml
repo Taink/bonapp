@@ -28,4 +28,5 @@
     <string name="addcart_button_contentdesc" translatable="false">add to cart button</string>
     <string name="flag_contentdesc" translatable="false">flag</string>
     <string name="step_name">Step %1$d:</string>
+    <string name="share">Share</string>
 </resources>

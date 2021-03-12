@@ -15,4 +15,5 @@
     <string name="sync_title">Synchroniser les emails périodiquement</string>
     <string name="attachment_title">Télécharger les pièces jointes reçues</string>
     <string name="title_activity_recipe_details">Recette de %1$s</string>
+    <string name="share">Partager</string>
 </resources>
