@@ -41,7 +41,7 @@ class DbController {
                         if (!inList(recipe.key!!,favoris)){
                             var name = recipe.child("name").getValue<String>()
                             var image = recipe.child("picture").getValue<String>()
-                            val prev = RecipePreview(name, image)
+                            val prev = RecipePreview(name, image,recipe.key)
                             mapListPreview[recipe.key as String] = prev
                             Log.i("recette",prev.name)
                         }
@@ -88,7 +88,7 @@ class DbController {
                             var image = recipe.child("picture").getValue<String>()
                             var isFav = true
                             if (recipe.key != null && name !=null && image !=null) {
-                                val prev = RecipePreview(name, image,isFav)
+                                val prev = RecipePreview(name, image, recipe.key!!,isFav)
                                 mapListPreview[recipe.key as String] = prev
                             }
                         }
