@@ -60,6 +60,7 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
 
      open fun submitList(recipeList: ArrayList<RecipePreview>) {
         items = recipeList
+        Log.e("IMPORTANT", items.toString())
     }
 
     class RecipePreviewViewHolder(
@@ -72,6 +73,8 @@ open class RecipePreviewRecyclerAdapter: RecyclerView.Adapter<RecyclerView.ViewH
 
         fun bind(recipePreview: RecipePreview) {
             recipeName.setText(recipePreview.name)
+
+            Log.e("IMPORTANT", recipePreview.toString())
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_missing_image_black_24dp)

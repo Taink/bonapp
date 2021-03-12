@@ -25,7 +25,6 @@ class RecipePreview {
         if (name != null) {
             this.name = name
         }
-        else
         if (image != null) {
             picture = image
         }
@@ -34,6 +33,10 @@ class RecipePreview {
 
     fun changeFavorite(){
         isFavorite =!isFavorite
+    }
+
+    override fun toString(): String {
+        return "${this.name} : URL = ${this.picture}, FAVORITE = ${this.isFavorite}"
     }
 
 }
