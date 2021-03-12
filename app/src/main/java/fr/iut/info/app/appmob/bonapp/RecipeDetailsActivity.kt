@@ -3,7 +3,6 @@ package fr.iut.info.app.appmob.bonapp
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,6 +19,7 @@ import fr.iut.info.app.appmob.bonapp.ui.widgets.IngredientRecyclerAdapter
 import fr.iut.info.app.appmob.bonapp.ui.widgets.StepRecyclerAdapter
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class RecipeDetailsActivity : AppCompatActivity() {
 
@@ -32,6 +32,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
 
     private fun fetchRecipe(): Recipe {
         val ingredientList = ArrayList<Ingredient>()
+        val ingredientMap = HashMap<String, Ingredient>()
         ingredientList.addAll(listOf(
             Ingredient("rôti de porc", 1.toFloat(), "kg"),
             Ingredient("pommes de terre nouvelles", 800.toFloat(), "g"),
@@ -41,22 +42,30 @@ class RecipeDetailsActivity : AppCompatActivity() {
             Ingredient("romarin", 0.toFloat(), ""),
             Ingredient("huile d'olive", 0.toFloat(), "")
         ))
+        ingredientList.forEach {
+            ingredientMap[it.nom.toString()] = it
+        }
 
         val stepList = ArrayList<Step>()
+        val stepMap = HashMap<String, Step>()
         stepList.addAll(listOf(
             Step("Lavez les pommes de terre et versez-les dans un plat adapté au four." +
                     " Badigeonnez-les d'huile, de sel et de romarin. Mélangez bien avec vos mains" +
-                    " et laissez de côté"),
+                    " et laissez de côté", 1),
             Step("Faites saisir le rôti sur chaque face dans une poêle. Enfournez pendant une" +
                     " heure et demi à 180°. Au bout d'une demie heure de cuisson, ajouter le plat de" +
                     " pommes de terre au four. Mélangez-les plusieurs fois pendant la cuisson pour" +
-                    " qu'elles dorent de tous les côtés.")
+                    " qu'elles dorent de tous les côtés.", 2)
         ))
+
+        stepList.forEach {
+            stepMap[it.number.toString()] = it
+        }
 
         return Recipe(
             "Rôti de porc, sauce aux kakis, pommes de terre au four",
-            ingredientList,
-            stepList,
+            ingredientMap,
+            stepMap,
             "https://i.imgur.com/98qnK0J.png",
             "11111"
         )
@@ -109,13 +118,13 @@ class RecipeDetailsActivity : AppCompatActivity() {
         peopleAmount.setText(getString(R.string.people_amount, 4))
 
         initIngredientsAdapter()
-        recipe.ingredients?.let {
-            ingredientsAdapter.submitList(it)
-        }
+        val ingredientsList = ArrayList<Ingredient>()
+        recipe.ingredients?.values?.let { ingredientsList.addAll(it) }
+        ingredientsAdapter.submitList(ingredientsList)
         initStepsAdapter()
-        recipe.steps?.let {
-            stepsAdapter.submitList(it)
-        }
+        val stepsList = ArrayList<Step>()
+        recipe.steps?.values?.let { stepsList.addAll(it) }
+        stepsAdapter.submitList(stepsList)
 
 
         if (recipeID >= 0) {
