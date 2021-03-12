@@ -1,18 +1,19 @@
 package fr.iut.info.app.appmob.bonapp.recettes
 
+import fr.iut.info.app.appmob.bonapp.db.models.Recipe
 import fr.iut.info.app.appmob.bonapp.db.models.Step
 import kotlin.collections.ArrayList
 
 class Recipe{
 
     var name: String?
-    var ingredients: ArrayList<Ingredient>?
-    var steps: ArrayList<Step>?
+    var ingredients: HashMap<String,Ingredient>?
+    var steps: HashMap<String,Step>?
     var picture: String?
-    var key:String?
+    private var key:String?
 
 
-    constructor(name: String?, ingredients: ArrayList<Ingredient>?, steps: ArrayList<Step>?, picture: String?, key: String?){
+    constructor(name: String?, ingredients: HashMap<String,Ingredient>?, steps: HashMap<String,Step>?, picture: String?, key: String?){
         this.name=name
         this.ingredients=ingredients;
         this.steps=steps;
@@ -27,11 +28,15 @@ class Recipe{
         return null
     }
 
-    fun addSteps(step: Step) {
-        steps?.add(step)
+    fun addSteps(clef: String ,step: Step) {
+        steps?.set(clef,step)
     }
 
-    fun setAll(name: String?, ingredients: ArrayList<Ingredient>?, steps: ArrayList<Step>?, picture: String?, key: String?){
+    fun setKey(key:String){
+        this.key= key
+    }
+
+    fun setAll(name: String?, ingredients: HashMap<String,Ingredient>?, steps: HashMap<String,Step>?, picture: String?, key: String?){
         this.name = name;
         this.ingredients=ingredients;
         this.steps=steps;
@@ -39,9 +44,12 @@ class Recipe{
         this.key=key;
     }
 
+    fun getKey(): String?{
+        return this.key
+    }
 
 
-    fun addIngredient(ingredient: Ingredient) {
-        ingredients?.add(ingredient)
+    fun addIngredient(clef:String ,ingredient: Ingredient) {
+        ingredients?.set(clef,ingredient)
     }
 }

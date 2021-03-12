@@ -2,7 +2,6 @@ package fr.iut.info.app.appmob.bonapp.controllers
 
 import android.content.Context
 import android.util.Log
-import androidx.room.Room
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
@@ -10,13 +9,10 @@ import com.google.firebase.ktx.Firebase
 import fr.iut.info.app.appmob.bonapp.db.models.Step
 import fr.iut.info.app.appmob.bonapp.db.room.AppDatabase
 import fr.iut.info.app.appmob.bonapp.db.room.Favorite
-import fr.iut.info.app.appmob.bonapp.db.room.FavoriteDAO
 import fr.iut.info.app.appmob.bonapp.recettes.Ingredient
 import fr.iut.info.app.appmob.bonapp.recettes.Recipe
 import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 import fr.iut.info.app.appmob.bonapp.services.inList
-import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
@@ -33,7 +29,7 @@ class DbController {
     }
 
 
-    fun getRecipesPreviews() : HashMap<String,RecipePreview> {
+    fun getRecipesPreviews(onReceiveMapPrev: (mapListPreview: HashMap<String,RecipePreview>) -> Unit) {
         val mapListPreview:HashMap<String,RecipePreview> = HashMap<String,RecipePreview>()
         val favDAO=localdb.favoriteDAO()
         val favoris:List<Favorite> = favDAO.getAll()
@@ -45,50 +41,40 @@ class DbController {
                         if (!inList(recipe.key!!,favoris)){
                             var name = recipe.child("name").getValue<String>()
                             var image = recipe.child("picture").getValue<String>()
-                            val prev = RecipePreview(name, image)
+                            val prev = RecipePreview(name, image,recipe.key)
                             mapListPreview[recipe.key as String] = prev
                             Log.i("recette",prev.name)
                         }
                     }
                 }
+                onReceiveMapPrev(mapListPreview)
             Log.i("firebase","Value ${recipes.value}")
         }   .addOnFailureListener{
             Log.e("firebase","Error while retrieving recipes",it)
         }
-        return mapListPreview
     }
 
-    fun getRecipe(num:String) : Recipe?{
-       var recetteFinal = Recipe()
+    fun getRecipe(num:String, onReceiveRecipe: (recipe: Recipe) -> Unit) {
         database.child("recipies").child(num).get().addOnSuccessListener {recipe ->
-            /*val recettekey = recipe.key
-            var name = recipe.child("name").getValue<String>()
-            var image = recipe.child("picture").getValue<String>()
-            val ingredients = ArrayList<Ingredient>()
-            for (i in recipe.child("ingredients").children){
-                val newIng = Ingredient(i.child("name").getValue<String>(),i.child("quantity").getValue<Float>(),i.child("unite").getValue<String>())
-                if (i.key != null){
-                    ingredients.add(newIng)
-                }
+            val result = recipe.getValue(fr.iut.info.app.appmob.bonapp.db.models.Recipe::class.java)
+            val klef = recipe.key
+            if (result != null && klef != null) {
+                val recette = Recipe()
+                recette.name = result.name
+                recette.setKey(klef)
+                recette.picture = result.picture
+                recette.ingredients = result.ingredients
+                recette.steps = result.steps
+
+                onReceiveRecipe(recette)
+                Log.i("firebase","value retrieved : ${result.name}")
             }
-            val etapes = ArrayList<Step>()
-            for (s in recipe.child("steps").children){
-                if(s.key !=null){
-                    val step = Step(s.getValue<String>())
-                    etapes.add(step)
-                }
-            }
-            Log.i("jpep","data retrieved : $recettekey")
-            if (recettekey != null) {
-                //recetteFinal.setAll(name,ingredients,etapes,image,recettekey)
-            }*/
         }.addOnFailureListener{
             Log.e("firebase","Error while retrieving recipe",it)
             }
-        return recetteFinal
     }
 
-    fun getAllFavorite(): HashMap<String, RecipePreview> {
+    fun getAllFavorite(onReceiveMapFav: (mapListFavPreview: HashMap<String, RecipePreview>) -> Unit) {
         val mapListPreview:HashMap<String,RecipePreview> = HashMap<String,RecipePreview>()
         val favDAO=localdb.favoriteDAO()
         val favoris:List<Favorite> = favDAO.getAll()
@@ -102,22 +88,28 @@ class DbController {
                             var image = recipe.child("picture").getValue<String>()
                             var isFav = true
                             if (recipe.key != null && name !=null && image !=null) {
-                                val prev = RecipePreview(name, image,isFav)
+                                val prev = RecipePreview(name, image, recipe.key!!,isFav)
                                 mapListPreview[recipe.key as String] = prev
                             }
                         }
                     }
                 }
+                onReceiveMapFav(mapListPreview)
             }.addOnFailureListener{
                 Log.e("firebase","Error while retrieving recipes",it)
             }
-        return mapListPreview
     }
 
     fun setFavorite(num: String){
         val favDAO=localdb.favoriteDAO()
         val fav= Favorite(num)
         favDAO.insertAll(fav)
+    }
+
+    fun removeFavorite(num: String){
+        val favDAO = localdb.favoriteDAO()
+        val fav = Favorite(num)
+        favDAO.delete(fav)
     }
 
     fun getIngredientList() : Array<Ingredient>?{

@@ -6,7 +6,7 @@ import fr.iut.info.app.appmob.bonapp.recettes.RecipePreview
 class FavoriteRecipePreviewRecyclerAdapter: RecipePreviewRecyclerAdapter() {
 
 
-    override fun submitList(recipeList: List<RecipePreview>) {
+    override fun submitList(recipeList: ArrayList<RecipePreview>) {
 
         val list = ArrayList<RecipePreview>()
 
@@ -19,4 +19,16 @@ class FavoriteRecipePreviewRecyclerAdapter: RecipePreviewRecyclerAdapter() {
 
         super.submitList(list)
     }
+
+    override fun removeItem(position: Int, isChecked: Boolean){
+        super.removeItem(position, isChecked)
+
+        if(!isChecked){
+            notifyItemRemoved(position)
+            items.removeAt(position)
+
+        }
+
+    }
+
 }

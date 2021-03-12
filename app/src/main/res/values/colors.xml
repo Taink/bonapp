@@ -12,4 +12,12 @@
     <color name="select_green">#43D12C</color>
     <color name="home_green">#BDF4DA</color>
     <color name="gray_1">#333333</color>
+    <color name="Green_A100">#B9F6CA</color>
+    <color name="Green_A200">#69F0AE</color>
+    <color name="Green_A400">#00E676</color>
+    <color name="Green_A700">#00C853</color>
+    <color name="Teal_600">#00897B</color>
+    <color name="Green_200">#A5D6A7</color>
+    <color name="Green_400">#66BB6A</color>
+    <color name="Green_600">#43A047</color>
 </resources>
